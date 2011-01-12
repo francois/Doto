@@ -11,8 +11,12 @@
 
 @interface Models : NSObject {
   NSArray *categories;
+  NSArray *todos;
 }
 
 @property (nonatomic, retain) NSArray *categories;
+@property (nonatomic, retain) NSArray *todos;
+
+-(void)resetCategories;
 
 @end

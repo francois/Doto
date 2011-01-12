@@ -17,4 +17,7 @@
 @property (assign) IBOutlet NSWindow *window;
 @property (nonatomic, retain) Models *models;
 
+-(IBAction)bump:(id)sender;
+-(IBAction)save;
+
 @end

@@ -8,14 +8,16 @@
 
 #import "Models.h"
 #import "DTCategory.h"
+#import "DTTodo.h"
 
 @implementation Models
 
-@synthesize categories;
+@synthesize categories, todos;
 
 -(id)init {
   if (self = [super init]) {
-    self.categories = [NSArray arrayWithObject:[[DTCategory alloc] init]];
+    self.categories = [NSArray arrayWithObject:[[DTCategory alloc] initWithName:@"Inbox"]];
+    self.todos = [NSArray array];
   }
 
   return self;
@@ -23,11 +25,17 @@
 
 -(void)dealloc {
   self.categories = nil;
+  self.todos = nil;
   [super dealloc];
 }
 
--(NSString *)description {
-  return [self.categories description];
+-(void)resetCategories {
+  NSLog(@"-[Models resetCategories]");
+  NSMutableSet *names = [NSMutableSet set];
+  for(DTTodo *todo in self.todos) {
+    [names addObject:todo.category];
+  }
+  NSLog(@"%@", names);
 }
 
 @end

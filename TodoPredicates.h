@@ -13,10 +13,15 @@
   NSString *filter;
 }
 
+@property (assign) IBOutlet NSArrayController *categories;
+@property (assign) IBOutlet NSArrayController *todos;
+
 @property (nonatomic, retain) NSPredicate *allPredicates;
 @property (nonatomic, copy) NSString *filter;
 
 -(IBAction)setSearchString:(id)sender;
 -(void)rebuildPredicates;
+
+-(IBAction)addTodo:(id)sender;
 
 @end
