@@ -11,19 +11,25 @@
 
 @implementation DTTodo
 
-@synthesize title;
+@synthesize category, title;
 
 -(id)init {
   if ((self = [super init])) {
-    self.title = @"Explore things further";
+    self.category = nil;
+    self.title = @"Todo";
   }
 
   return self;
 }
 
 -(void)dealloc {
+  self.category = nil;
   self.title = nil;
   [super dealloc];
+}
+
+-(NSString *)description {
+  return [NSString stringWithFormat:@"[Todo category=%@, title=%@]", self.category, self.title];
 }
 
 @end

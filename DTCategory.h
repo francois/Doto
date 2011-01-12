@@ -17,4 +17,6 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, retain) NSArray *todos;
 
+-(id)initWithName:(NSString *)aName;
+
 @end

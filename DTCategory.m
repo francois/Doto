@@ -14,9 +14,13 @@
 @synthesize name, todos;
 
 -(id)init {
+  return [self initWithName:@"New Category"];
+}
+
+-(id)initWithName:(NSString *)aName {
   if ((self = [super init])) {
-    self.name = @"Inbox";
-    self.todos = [NSArray arrayWithObject:[[DTTodo alloc] init]];
+    self.name = aName;
+    self.todos = [NSArray array];
   }
 
   return self;

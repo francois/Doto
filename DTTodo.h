@@ -10,9 +10,11 @@
 
 
 @interface DTTodo : NSObject {
+  NSString *category;
   NSString *title;
 }
 
+@property (nonatomic, copy) NSString *category;
 @property (nonatomic, copy) NSString *title;
 
 @end
