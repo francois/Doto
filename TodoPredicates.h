@@ -15,6 +15,7 @@
 
 @property (assign) IBOutlet NSArrayController *categories;
 @property (assign) IBOutlet NSArrayController *todos;
+@property (assign) IBOutlet NSTableView *todoTable;
 
 @property (nonatomic, retain) NSPredicate *allPredicates;
 @property (nonatomic, copy) NSString *filter;

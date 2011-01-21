@@ -11,7 +11,7 @@
 
 @implementation TodoPredicates
 
-@synthesize filter, allPredicates, categories, todos;
+@synthesize filter, allPredicates, categories, todos, todoTable;
 
 -(void)awakeFromNib {
   [self.categories addObserver:self forKeyPath:@"selectionIndexes" options:NSKeyValueObservingOptionNew context:nil];
@@ -56,13 +56,15 @@
 }
 
 -(IBAction)addTodo:(id)sender {
-  NSLog(@"adding todo");
   DTTodo *todo = [[DTTodo alloc] init];
   todo.category = [[[self.categories selectedObjects] objectAtIndex:0] name];
 
   [self.todos addObject:todo];
   [todo release];
   [self rebuildPredicates];
+
+  NSInteger rowIndex = [[self.todos arrangedObjects] indexOfObject:todo];
+  [todoTable editColumn:0 row:rowIndex withEvent:nil select:YES];
 }
 
 @end
